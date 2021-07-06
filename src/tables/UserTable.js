@@ -1,7 +1,10 @@
 import React from 'react'
 
-const UserTable = props => (
-  <table>
+
+export default function UserTable(props) {
+  const className = ["usertable", props.className]
+ return (
+  <table className="usertable">
     <thead>
       <tr>
         <th>Name</th>
@@ -12,7 +15,8 @@ const UserTable = props => (
       </tr>
     </thead>
     <tbody>
-      {props.users.length > 0 ? (
+     
+    {props.users.length > 0 ? (
         props.users.map(user => (
           <tr key={user.id}>
             <td>{user.name}</td>
@@ -44,6 +48,6 @@ const UserTable = props => (
       )}
     </tbody>
   </table>
-)
 
-export default UserTable
+  )
+  }
