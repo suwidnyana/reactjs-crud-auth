@@ -2,7 +2,7 @@ import React, { useState, Fragment,useEffect } from 'react'
 import AddUserForm from '../forms/AddUserForm'
 import EditUserForm from '../forms/EditUserForm'
 import UserTable from '../tables/UserTable'
-import {useHistory,Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const Dashboard = () => {
     const usersData = [
@@ -17,7 +17,7 @@ const Dashboard = () => {
 		console.log("dashboard")
 		let Auth = localStorage.getItem("authenticated");
 		
-		if(Auth == null || Auth ==  "false"){
+		if(Auth === null || Auth ===  "false"){
 			history.push("/");
 			return
 		}

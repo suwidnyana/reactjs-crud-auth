@@ -2,7 +2,7 @@ import React from 'react'
 
 
 export default function UserTable(props) {
-  const className = ["usertable", props.className]
+ 
  return (
   <table className="usertable">
     <thead>

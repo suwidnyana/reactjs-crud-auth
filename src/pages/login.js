@@ -22,14 +22,14 @@ const Login = () => {
         console.log(email, password);
         console.log(email !== "grayfullbuster522@gmail.com" || password !== "123");
 
-        if(email == "")
+        if(email === "")
         {
             setEmailError(true)
         
         } else {
             setEmailError(false)
         }
-        if(password == "")
+        if(password === "")
         {   
             
             setPasswordError(true)

@@ -1,21 +1,12 @@
-# pull the base image
-FROM node:alpine
-
-# set the working direction
+# Stage 1 - the build process
+FROM node:15.0.0-alpine as build
 WORKDIR /app
-
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-# install app dependencies
 COPY package.json ./
+COPY yarn.lock ./
+RUN yarn install 
+COPY . .
+RUN yarn build
 
-COPY package-lock.json ./
 
-RUN npm install
-
-# add app
-COPY . ./
-
-# start app
-CMD ["npm", "start"]
+# FROM nginx:1.19-alpine AS server
+# COPY --from=build ./app/build /usr/share/nginx/html
